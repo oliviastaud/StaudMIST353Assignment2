@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="StaudMIST353Assignment2.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <h1>Weather Forecast</h1>
+
+    <h2>Enter Your Location</h2>
+    <p>Get accurate information for your garden by providing your location.</p>
+
+    <button onclick="getLocation()">Use My Current Location</button>
+    <p id="demo"></p>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Weekly Weather Forecast</h5>
+            <p class="card-text">Plan your week with accurate weather insights.</p>
+        </div>
+    </div>    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="4">Week of February 15, 2024</th>
+            </tr>
+            <tr>
+                <th>Day</th>
+                <th>Temperature (°F)</th>
+                <th>Precipitation (%)</th>
+                <th>Wind Speed (mph)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sunday</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Today's Weather</h2>
+    <p> Stay informed about the current weather conditions to plan your daily gardening tasks.</p>
+
+
+
+    <script>
+        const x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+
+            fetchWeatherData();
+        }
+    </script>
+
+
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
